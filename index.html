@@ -1,0 +1,106 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Diary</title>
+
+    <!-- Load CSS/Link Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <div class="container centered">
+
+        <div class="loading-logo centered animate__animated" id="loader">
+
+            <div class="spinner-line-wrapper centered">
+                <div class="spinner-line"></div>
+            </div>
+
+            <div class="spinner-line-wrapper centered">
+                <div class="spinner-line"></div>
+            </div>
+
+            <div class="spinner-line-wrapper centered">
+                <div class="spinner-line"></div>
+            </div>
+
+            <div class="spinner-line-wrapper centered">
+                <div class="spinner-line"></div>
+            </div>
+
+            <p id="percentage">0%</p>
+
+        </div>
+
+        <div class="binary-logo animate__animated" id="binaryLogo">
+            <h1 class="animate__animated animate__delay-1s" id="BLLeft">Binary</h1>
+            <h1 class="animate__animated animate__delay-1s" id="BLRight">Diary</h1>
+        </div>
+
+        <p class="animate__animated animate__delay-3s" id="BLSubTxt">Coming Soon!</p>
+    </div>
+</body>
+<script type="text/javascript">
+
+    // Set a variable to count to 100
+    var count = 0;
+
+    // Get P tag
+    var percentText = document.getElementById('percentage');
+
+    function countIt() {
+        
+        // If count is less than 100
+        if(count < 100){
+
+            // Increase count by 1
+            count++;
+
+            // Call on function to add new count to html
+            setTimeout(updateTxt, 10);
+        }
+        else if (count == 100){
+            setTimeout(fadeOut, 200);
+        }
+    }
+    function updateTxt() {
+        percentText.innerHTML = count + "%";
+        countIt();
+    }
+
+    function fadeOut(){
+        var loader = document.getElementById('loader');
+
+        loader.classList.add('fadeOut');
+
+        setTimeout(fadeIn, 200);
+    }
+
+    function fadeIn() {
+        var binaryLogo = document.getElementById('binaryLogo');
+        var binaryTxt = document.getElementById('BLLeft');
+        var diaryTxt = document.getElementById('BLRight');
+        var subtext = document.getElementById('BLSubTxt');
+
+        binaryLogo.style.display = "block";
+        binaryLogo.classList.add('animate__fadeIn');
+
+        binaryTxt.classList.add('animate__fadeInLeft')
+        diaryTxt.classList.add('animate__fadeInRight')
+
+        subtext.style.display = "block";
+        subtext.classList.add('animate__bounceIn')
+    };
+
+    countIt();
+
+
+</script>
+</html>

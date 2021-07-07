@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Major Mono Display', monospace;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+/* Resuable Classes */
+
+.centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Main Content { The Binary Diary Logo } */
+
+.loading-logo, .binary-logo {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    margin-top: -100px;
+}
+.loader-inner {
+    bottom: 0;
+    height: 60px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100px;
+}
+.spinner-line-wrapper {
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    overflow: hidden;
+    animation: spin 2000ms cubic-bezier(.175, .885, .32, 1.275) infinite;
+
+    transform-origin: 50% 100%;
+}
+
+.spinner-line-wrapper:nth-child(1) { animation-delay: -50ms; }
+.spinner-line-wrapper:nth-child(2) { animation-delay: -100ms; }
+.spinner-line-wrapper:nth-child(3) { animation-delay: -150ms; }
+.spinner-line-wrapper:nth-child(4) { animation-delay: -200ms; }
+
+.spinner-line {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    border-radius: 100%;
+    border: 10px solid transparent;
+    box-sizing: border-box;
+}
+
+.spinner-line-wrapper:nth-child(1) .spinner-line {
+    top: 0;
+    border-color: #0A0908;
+}
+
+.spinner-line-wrapper:nth-child(2) .spinner-line {
+    width: 170px;
+    height: 170px;
+    top: 15px;
+    border-color: #22333B;
+}
+.spinner-line-wrapper:nth-child(3) .spinner-line {
+    width: 140px;
+    height: 140px;
+    top: 30px;
+    border-color: #5E503F;
+}
+
+.spinner-line-wrapper:nth-child(4) .spinner-line {
+    width: 110px;
+    height: 110px;
+    top: 45px;
+    border-color: #C6AC8F;
+}
+
+#percentage {
+    position: absolute;
+    top: 60%;
+    text-align: center;
+}
+
+.binary-logo {
+    width: 100vw;
+    display: none;
+}
+
+.binary-logo h1{
+    margin-top: -20px;
+    font-size: 6em;
+    position: absolute;
+    padding: 20px;
+    border:10px solid transparent;
+}
+
+#BLSubTxt {
+    position: absolute;
+    top: 55%;
+    font-size: 1.5em;
+    display: none;
+}
+
+.binary-logo h1:first-child{
+    left: 19%;
+    color: #5E503F;
+    border-left:10px solid #22333B;
+}
+.binary-logo h1:last-child{
+    right: 20%;
+    color: #0A0908;
+    border-color: #22333B;
+    border-left: none;
+}
+@keyframes spin {
+    0%, 15% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.fadeOut {
+    animation: fadeOutBD 300ms forwards;
+    transition: all ease 300ms;
+}
+
+@keyframes fadeOutBD {
+    0% { opacity: 1;}
+
+    100% { opacity: 0; display: none;}
+}
